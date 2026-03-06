@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConnectCraft Agency</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+background:#281953;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+position:fixed;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(8px);
+}
+
+header h1{color:#92acfe;}
+
+nav a{
+margin:0 15px;
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{color:#92acfe;}
+
+.hero{
+height:90vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+top:0;
+left:0;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+z-index:1;
+max-width:900px;
+}
+
+.hero h2{
+font-size:3rem;
+}
+
+.hero p{
+margin:20px 0;
+font-size:1.2rem;
+color:#ddd;
+}
+
+section{
+padding:90px 8%;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:#92acfe;
+font-size:2.5rem;
+}
+
+.about{
+max-width:900px;
+margin:auto;
+font-size:1.1rem;
+line-height:1.9;
+color:#ddd;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:linear-gradient(145deg,#121041,#1a1670);
+border-radius:15px;
+padding:25px;
+text-align:center;
+transition:.4s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(146,172,254,.4);
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.book-btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 30px;
+border-radius:50px;
+background:#ffce42;
+color:#000;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+}
+
+.book-btn:hover{
+background:#e0b032;
+}
+
+.contact{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.contact a{
+padding:18px 35px;
+border-radius:50px;
+background:#92acfe;
+color:black;
+text-decoration:none;
+font-weight:600;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#aaa;
+}
+
+.quote{
+position:fixed;
+bottom:40px;
+max-width:300px;
+font-family:'Pacifico',cursive;
+font-size:1.2rem;
+background:#92acfe;
+color:#000;
+padding:15px;
+border-radius:15px;
+opacity:0;
+}
+
+.left{left:20px;}
+.right{right:20px;}
+
+#soundBtn{
+position:fixed;
+bottom:30px;
+right:25px;
+width:55px;
+height:55px;
+border-radius:50%;
+border:none;
+background:#92acfe;
+font-size:22px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 6px 20px rgba(0,0,0,0.4);
+}
+
+#soundBtn:hover{
+transform:scale(1.1);
+}
+#aiChatButton{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#0ea5e9;
+color:white;
+font-size:24px;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+}
+
+#aiChatBox{
+position:fixed;
+bottom:100px;
+right:20px;
+width:320px;
+height:420px;
+background:#111;
+border-radius:10px;
+display:none;
+flex-direction:column;
+overflow:hidden;
+}
+
+#chatHeader{
+background:#0ea5e9;
+padding:12px;
+font-weight:bold;
+}
+
+#chatMessages{
+flex:1;
+padding:10px;
+overflow-y:auto;
+font-size:14px;
+}
+
+#chatInputArea{
+display:flex;
+border-top:1px solid #333;
+}
+
+#chatInput{
+flex:1;
+padding:10px;
+border:none;
+background:#222;
+color:white;
+}
+
+#chatInputArea button{
+background:#0ea5e9;
+border:none;
+padding:10px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ConnectCraft</h1>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#types">Website Types</a>
+<a href="#graphics">Design</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO VIDEO -->
+<section class="hero" id="home">
+
+<video id="heroVideo" autoplay muted loop playsinline preload="auto">
+<source src="connect craft agency.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+<h2>ConnectCraft Agency</h2>
+<p>We Build Powerful, Scalable & High-Converting Digital Experiences</p>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<h2>About Us</h2>
+
+<div class="about">
+
+<p>
+ConnectCraft Agency was founded with one powerful mission — helping businesses grow through world-class digital solutions. 
+We believe every business deserves a professional digital presence that communicates trust, quality and excellence.
+</p>
+
+<p>
+Our journey began from a passion for technology, design and innovation. What started as an idea to build modern digital experiences has grown into a creative agency dedicated to solving real business problems using technology.
+</p>
+
+<p>
+We combine strategic thinking, modern web technologies and powerful design principles to craft websites that not only look beautiful but also perform exceptionally in attracting clients.
+</p>
+
+<p>
+At ConnectCraft, we don't simply build websites — we engineer digital ecosystems that help brands grow, convert visitors into customers and create long-term business impact.
+</p>
+
+</div>
+
+</section>
+
+<!-- WEBSITE TYPES -->
+
+<section id="types">
+
+<h2>Types of Websites We Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="MENU (1).png">
+<h3>E-Commerce Websites</h3>
+<p>Professional online stores that sell products worldwide.</p>
+<a href="https://wa.me/254714522960" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="CONNECT CRAFt.png">
+<img src="MENU (3).png">
+<h3>Corporate Websites</h3>
+<p>Professional business websites designed for companies.</p>
+<a href="https://wa.me/254714522960" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="CONNECT CRAFt (1).png">
+<h3>Portfolio Websites</h3>
+<p>Perfect for creatives and professionals.</p>
+<a href="https://wa.me/254714522960?text=Hello there,%20I%20want%20to%20book%20%20Portfolio Websites" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="Let's Connect.png">
+<h3>Booking Websites</h3>
+<p>Websites with appointment and booking systems.</p>
+<a href="https://wa.me/254714522960" class="book-btn">Book Now</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- GRAPHICS -->
+
+<section id="graphics">
+
+<h2>Poster & Graphic Design</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="Techskills180.png">
+<h3>Corporate & Business Graphics</h3>
+<p>
+High-end professional graphics designed for companies, agencies, and organizations.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20%20Corporate & Business Graphics Websites" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="MEET_GRAPHYX.png">
+<h3>Marketing Posters</h3>
+<p>
+Creative posters and visual campaigns to boost marketing and engagement.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20%20Marketing Posters" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="Your paragraph text (3).png">
+<h3>Public flyers</h3>
+<p>
+Engaging social media visuals to grow brand awareness and interaction.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20%20Graphics" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="Untitled design (1).png">
+<h3>Infographics</h3>
+<p>
+Informative and visually appealing infographics to communicate your data effectively.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20%20Infographics" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="maina muigai.png">
+<h3>Branding Graphics</h3>
+<p>
+Custom designs to establish a strong and memorable brand identity.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20Branding%20Graphics" class="book-btn">Book Now</a>
+</div>
+
+<div class="card">
+<img src="contact us  +0745466465.png">
+<h3>Marketing Graphics</h3>
+<p>
+Visual content to enhance your campaigns and attract more customers.
+</p>
+<a href="https://wa.me/254714522960?text=Hello,%20I%20want%20to%20book%20%20Marketing Graphics" class="book-btn">Book Now</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<div class="contact">
+<a href="https://wa.me/254714522960">💬 WhatsApp Us</a>
+<a href="mailto:meetmuigai@gmail.com">📧 Email Us</a>
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 ConnectCraft Agency — We Build Powerful Digital Experiences</p>
+
+</footer>
+
+<!-- FLOATING SOUND BUTTON -->
+
+<button id="soundBtn">🔊</button>
+
+<!-- AUDIO -->
+
+<audio id="siteAudio" loop>
+<source src="connect craft agency (online-audio-converter.com).mp3" type="audio/mpeg">
+</audio>
+
+<!-- QUOTES -->
+
+<div class="quote left" id="q1">"Your vision deserves a digital presence that inspires."</div>
+<div class="quote right" id="q2">"We craft technology that drives business growth."</div>
+
+<script>
+
+const video=document.getElementById("heroVideo");
+
+video.play().catch(()=>{});
+
+const audio=document.getElementById("siteAudio");
+const btn=document.getElementById("soundBtn");
+
+btn.onclick=function(){
+
+if(audio.paused){
+audio.play();
+btn.innerHTML="🔇";
+}else{
+audio.pause();
+btn.innerHTML="🔊";
+}
+
+};
+
+function fadeQuote(id,delay,duration){
+
+const el=document.getElementById(id);
+
+setTimeout(()=>{
+el.style.opacity=1;
+el.style.transition="opacity 1s";
+
+setTimeout(()=>{
+el.style.opacity=0;
+},duration);
+
+},delay);
+
+}
+
+fadeQuote("q1",2000,5000);
+fadeQuote("q2",7000,5000);
+const apiKey = "YOUR_OPENAI_API_KEY";
+
+document.getElementById("aiChatButton").onclick = () => {
+const box = document.getElementById("aiChatBox");
+box.style.display = box.style.display === "flex" ? "none" : "flex";
+};
+
+async function sendMessage(){
+
+const input = document.getElementById("chatInput");
+const message = input.value;
+
+if(!message) return;
+
+const chat = document.getElementById("chatMessages");
+
+chat.innerHTML += `<div><b>You:</b> ${message}</div>`;
+
+input.value="";
+
+const response = await fetch("https://api.openai.com/v1/chat/completions",{
+method:"POST",
+headers:{
+"Content-Type":"application/json",
+"Authorization":"Bearer "+apiKey
+},
+body:JSON.stringify({
+model:"gpt-4o-mini",
+messages:[
+{
+role:"system",
+content:"You are a helpful assistant for ConnectCraft Agency. You help clients understand web design services, pricing, and digital marketing."
+},
+{
+role:"user",
+content:message
+}
+]
+})
+});
+
+const data = await response.json();
+
+const reply = data.choices[0].message.content;
+
+chat.innerHTML += `<div><b>AI:</b> ${reply}</div>`;
+
+chat.scrollTop = chat.scrollHeight;
+
+}
+
+
+</script>
+<!-- AI CHATBOT -->
+<div id="aiChatButton">💬</div>
+
+<div id="aiChatBox">
+    <div id="chatHeader">ConnectCraft AI Assistant</div>
+
+    <div id="chatMessages"></div>
+
+    <div id="chatInputArea">
+        <input type="text" id="chatInput" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+</body>
+</html>
