@@ -31,6 +31,7 @@ backdrop-filter:blur(8px);
 
 header h1{color:#92acfe;}
 
+/* NAVIGATION STYLES */
 nav a{
 margin:0 15px;
 color:white;
@@ -40,6 +41,7 @@ font-weight:500;
 
 nav a:hover{color:#92acfe;}
 
+/* HERO SECTION */
 .hero{
 height:90vh;
 position:relative;
@@ -262,6 +264,42 @@ padding:10px;
 cursor:pointer;
 }
 
+/* MOBILE MENU STYLES */
+#menuBtn{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:white;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+
+#menuBtn{
+display:block;
+}
+
+#navMenu{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:20px;
+background:#281953;
+padding:20px;
+border-radius:10px;
+}
+
+#navMenu a{
+display:block;
+margin:10px 0;
+}
+
+#navMenu.show{
+display:flex;
+}
+
+}
 </style>
 </head>
 
@@ -270,23 +308,25 @@ cursor:pointer;
 <header>
 <h1>ConnectCraft</h1>
 
-<nav>
-    <div class="menu-icon" onclick="toggleMenu()">※</div>
-    <ul class="nav-links" id="navlinks">
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Website Types</a></li>
-<li><a href="#">Design</a></li>
-<li><a href="#">Contact</a></li>
-    </ul>
+<!-- MOBILE MENU BUTTON -->
+<div id="menuBtn">☰</div>
+
+<!-- NAVIGATION -->
+<nav id="navMenu">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#types">Website Types</a>
+<a href="#graphics">Design</a>
+<a href="#contact">Contact</a>
 </nav>
+
 </header>
 
 <!-- HERO VIDEO -->
 <section class="hero" id="home">
 
 <video id="heroVideo" autoplay muted loop playsinline preload="auto">
-<source src="connect craft agency.mp4" type="video/mp4">
+<source src="connect craft agency (1).mp4" type="video/mp4">
 </video>
 
 <div class="hero-content">
@@ -374,7 +414,7 @@ At ConnectCraft, we don't simply build websites — we engineer digital ecosyste
 <div class="grid">
 
 <div class="card">
-<img src="Techskills180.png">
+<img src="Techskills180 (1).png">
 <h3>Corporate & Business Graphics</h3>
 <p>
 High-end professional graphics designed for companies, agencies, and organizations.
@@ -494,9 +534,7 @@ setTimeout(()=>{
 el.style.opacity=1;
 el.style.transition="opacity 1s";
 
-setTimeout(()=>{
-el.style.opacity=0;
-},duration);
+setTimeout(()=>{el.style.opacity=0;},duration);
 
 },delay);
 
@@ -555,6 +593,13 @@ chat.scrollTop = chat.scrollHeight;
 
 }
 
+// MOBILE MENU TOGGLE
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.onclick = function(){
+navMenu.classList.toggle("show");
+};
 
 </script>
 <!-- AI CHATBOT -->
@@ -571,5 +616,4 @@ chat.scrollTop = chat.scrollHeight;
     </div>
 </div>
 </body>
-
 </html>
